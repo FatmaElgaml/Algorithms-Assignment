@@ -1,5 +1,6 @@
 #include <iostream>
 #include<cmath>
+#include<vector> 
 using namespace std;
 
 int Fibonacci_Series_1(int num) {
@@ -53,24 +54,62 @@ long long Fibonacci_Series_2(long long num) {
 	return M[0][1];
 }
 
+long long Fibonacci_Series_3(long long num) {
+	
+	int prev2 = 0;
+	int prev1 = 1;
+	int current ;
+	if (num <= 1)
+		return num;
+	for (int i = 2;i <= num;i++) {
+		current = prev1 + prev2;
+		prev2 = prev1;
+		prev1 = current;
+	}
+	return current;
+}
 
 int main() {
 
 	int num;
-	char choice;
-	;
-	do {
+	int choice;
+	char exit;
+	while(true){
 		cout << "Enter Number please: ";
 		cin >> num;
 		if (num < 0) {
 			cout << "In Fibonacci Series never work on negative numbers.";
 			return 0;
 		}
-		cout << Fibonacci_Series_2(num) << endl;
-		cout << "Do you want another Fibonacci number? (y/n): ";
+		cout << "Choose a method for Fibonacci: \n";
+		cout << "1. Recursion method \n";
+		cout << "2. Matrix Multiply method \n";
+		cout << "3. Dynamic Programming method \n";
 		cin >> choice;
-	} while (choice == 'Y' || choice == 'y');
-	return 0;
+		switch (choice) {
+			case 1:
+				cout << "Recursion result = " << Fibonacci_Series_1(num) <<endl;
+				break;
+			case 2:
+				cout << "Matrix Multiply result = " << Fibonacci_Series_2(num) << endl;
+				break;
+			case 3:
+				cout << "Dynamic Programming result = " << Fibonacci_Series_3(num) << endl;
+				break;
+			default:
+				cout << "Invalid Input!!!! \n";
+				break;
+		}
+		cout << "Do you want to continue? (y/n): ";
+		cin >> exit;
+		if (exit != 'y' || exit != 'Y')
+		{
+			cout << "Good Bye :)" << endl;
+			return 0;
+		}
+	}
+	
+		
 
 }
 
