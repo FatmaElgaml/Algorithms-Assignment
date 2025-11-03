@@ -107,8 +107,8 @@ int main() {
 		// End timer
 		auto end = steady_clock::now();
 		//To calculate time for method
-		auto duration = duration_cast<milliseconds>(end - start);
-		cout << "This method takes: " << duration.count() << " milliseconds" << endl;
+		auto duration = duration_cast<microseconds>(end - start);
+		cout << "This method takes: " << duration.count() << " microseconds" << endl;
 
 		cout << "Do you want to continue? (y/n): ";
 		cin >> exit;
