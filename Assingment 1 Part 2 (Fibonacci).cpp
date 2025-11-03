@@ -34,19 +34,19 @@ void multiplyInTwoMatrices(long long Matrix_A[2][2], long long Matrix_B[2][2]) {
 }
 
 void power(long long M[2][2], long long num) {
-	if ( num == 1) {
+	if (num == 1) {
 		return;
 	}
 	long long Matrix_base[2][2] = { {1,1},{1,0} };
 	power(M, num / 2);
 	multiplyInTwoMatrices(M, M);
 
-	if (num % 2 != 0) 
+	if (num % 2 != 0)
 		multiplyInTwoMatrices(M, Matrix_base);
-	
 
 
-	
+
+
 }
 
 long long Fibonacci_Series_2(long long num) {
@@ -58,10 +58,10 @@ long long Fibonacci_Series_2(long long num) {
 }
 
 long long Fibonacci_Series_3(long long num) {
-	
+
 	int prev2 = 0;
 	int prev1 = 1;
-	int current ;
+	int current;
 	if (num <= 1)
 		return num;
 	for (int i = 2;i <= num;i++) {
@@ -77,7 +77,7 @@ int main() {
 	int num;
 	int choice;
 	char exit;
-	while(true){
+	while (true) {
 		cout << "Enter Number please: ";
 		cin >> num;
 		if (num < 0) {
@@ -92,25 +92,25 @@ int main() {
 		// Start timer
 		auto start = steady_clock::now();
 		switch (choice) {
-			case 1:
-				cout << "Recursion result = " << Fibonacci_Series_1(num) <<endl;
-				break;
-			case 2:
-				cout << "Matrix Multiply result = " << Fibonacci_Series_2(num) << endl;
-				break;
-			case 3:
-				cout << "Dynamic Programming result = " << Fibonacci_Series_3(num) << endl;
-				break;
-			default:
-				cout << "Invalid Input!!!! \n";
-				break;
+		case 1:
+			cout << "Recursion result = " << Fibonacci_Series_1(num) << endl;
+			break;
+		case 2:
+			cout << "Matrix Multiply result = " << Fibonacci_Series_2(num) << endl;
+			break;
+		case 3:
+			cout << "Dynamic Programming result = " << Fibonacci_Series_3(num) << endl;
+			break;
+		default:
+			cout << "Invalid Input!!!! \n";
+			break;
 		}
 		// End timer
 		auto end = steady_clock::now();
 		//To calculate time for method
 		auto duration = duration_cast<milliseconds>(end - start);
 		cout << "This method takes: " << duration.count() << " milliseconds" << endl;
-		
+
 		cout << "Do you want to continue? (y/n): ";
 		cin >> exit;
 		if (exit != 'y' && exit != 'Y')
@@ -120,8 +120,7 @@ int main() {
 		}
 		cout << "------------------------------------------- \n";
 	}
-	
-		
+
+
 
 }
-
